@@ -20,5 +20,5 @@
       "By Zeus's hammer!")
   (do (println "Failure!")
       "By Aquaman's trident!"))
-; => Success!
-; => "By Zeus's hammer!"
+; => Success! ( printed in the REPL)
+; => "By Zeus's hammer!" ( returned as the value of the entire if expression)
