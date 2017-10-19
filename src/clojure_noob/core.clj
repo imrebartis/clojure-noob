@@ -1,7 +1,14 @@
 (ns clojure-noob.core
   (:gen-class))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(if true
+  "By Zeus's hammer!"
+  "By Aquaman's trident!")
+; => "By Zeus's hammer!"
+
+(if false
+  "By Zeus's hammer!"
+  "By Aquaman's trident!")
+; => "By Aquaman's trident!"
+
+
