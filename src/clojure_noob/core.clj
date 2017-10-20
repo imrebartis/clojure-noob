@@ -182,5 +182,26 @@ failed-protagonist-names
 ; => #{3 4}
 
 
+; CALLING FUNCTIONS
+; (or + -) returns the first truthy value, i.e. +
+((or + -) 1 2 3)
+; => 6
+
+; and returns the last truthy value:
+((and (= 1 1) +) 1 2 3)
+; => 6
+
+((first [+ 0]) 1 2 3)
+; => 6
+
+(map inc [0 1 2 3])
+; => (1 2 3 4) (btw map doesn't return a vector)
+
+(+ (inc 199) (/ 100 (- 7 2)))
+(+ 200 (/ 100 (- 7 2))) ; evaluated "(inc 199)"
+(+ 200 (/ 100 5)) ; evaluated (- 7 2)
+(+ 200 20) ; evaluated (/ 100 5)
+220 ; final evaluation
+
 
 
