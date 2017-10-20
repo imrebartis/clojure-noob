@@ -123,3 +123,23 @@ failed-protagonist-names
 (conj [1 2 3] 4)
 ; => [1 2 3 4]
 
+; LISTS
+
+; creating lists:
+'(1 2 3 4)
+; => (1 2 3 4)
+
+(list 1 "two" {3 4})
+; => (1 "two" {3 4})
+
+; retrieving elements from lists:
+(nth '(:a :b :c) 0)
+; => :a
+
+(nth '(:a :b :c) 2)
+; => :c
+
+; elements are added to beginning of list:
+(conj '(1 2 3) 4)
+; => (4 1 2 3)
+
