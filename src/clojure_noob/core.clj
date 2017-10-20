@@ -143,3 +143,44 @@ failed-protagonist-names
 (conj '(1 2 3) 4)
 ; => (4 1 2 3)
 
+
+; SETS (collections of unique values)
+
+; literal notation for a hash set:
+#{"kurt vonnegut" 20 :icicle}
+
+;using hash-test to create a set:
+(hash-set 1 1 2 2)
+; => #{1 2}
+
+(conj #{:a :b} :b)
+; => #{:a :b}
+
+; turn vectors into hash-set:
+(set [3 3 3 4 4])
+
+(contains? #{:a :b} :a)
+; => true
+
+(contains? #{:a :b} 3)
+; => false
+
+(contains? #{nil} nil)
+; => true
+
+(:a #{:a :b})
+; => :a
+
+(get #{:a :b} :a)
+; => :a
+
+(get #{:a nil} nil)
+; => nil
+
+(get #{:a :b} "kurt vonnegut")
+; => nil
+; => #{3 4}
+
+
+
+
