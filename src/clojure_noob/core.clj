@@ -203,5 +203,57 @@ failed-protagonist-names
 (+ 200 20) ; evaluated (/ 100 5)
 220 ; final evaluation
 
+; FUNCTION DEFINITIONS & ARITY
+(defn no-params
+  []
+  "I take no parameters!")
+(defn one-param
+  [x]
+  (str "I take one parameter: " x))
+(defn two-params
+  [x y]
+  (str "Two parameters! That's nothing! Pah! I will smoosh them "
+  "together to spite you! " x y))
+
+(two-params "1" " & 2")
+; "Two parameters! That's nothing! Pah! I will smoosh them together to spite you! 1 & 2"
 
 
+;multi-arity
+(defn x-chop
+  "Describe the kind of chop you're inflicting on someone"
+  ([name chop-type]
+     (str "I " chop-type " chop " name "! Take that!"))
+  ([name]
+     (x-chop name "karate")))
+
+(x-chop "Kanye West" )
+; => "I karate chop Kanye West! Take that!"
+
+(x-chop "Kanye West" "slap")
+; => "I slap chop Kanye West! Take that!"
+
+
+; variable-arity functions contain a rest parameter (i.e. &),
+; as in “put the rest of these arguments in a list with the following name”:
+(defn codger-communication
+  [whippersnapper]
+  (str "Get off my lawn, " whippersnapper "!!!"))
+
+(defn codger
+  [& whippersnappers]
+  (map codger-communication whippersnappers))
+
+(codger "Billy" "Anne-Marie" "The Incredible Bulk")
+; => ("Get off my lawn, Billy!!!"
+;      "Get off my lawn, Anne-Marie!!!"
+;    "Get off my lawn, The Incredible Bulk!!!")
+
+; mixing rest parameters with normal parameters:
+(defn favorite-things
+  [name & things]
+  (str "Hi, " name ", here are my favorite things: "
+       (clojure.string/join ", " things)))
+
+(favorite-things "Doreen" "gum" "shoes" "kara-te")
+; => "Hi, Doreen, here are my favorite things: gum, shoes, kara-te"
