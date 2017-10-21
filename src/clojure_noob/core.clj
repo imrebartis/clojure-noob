@@ -326,3 +326,30 @@ failed-protagonist-names
 
 (number-comment 7)
 ; => "Oh my gosh! What a big number!"
+
+
+; ANONYMOUS FUNCTIONS
+(map (fn [name] (str "Hi, " name))
+     ["Darth Vader" "Mr. Magoo"])
+; => ("Hi, Darth Vader" "Hi, Mr. Magoo")
+
+((fn [x] (* x 3)) 8)
+; => 24
+
+(def my-special-multiplier (fn [x] (* x 3)))
+(my-special-multiplier 12)
+; => 36
+
+(#(* % 3) 8)
+; => 24
+
+(map #(str "Hi, " %)
+     ["Darth Vader" "Mr. Magoo"])
+; => ("Hi, Darth Vader" "Hi, Mr. Magoo")
+
+(#(str %1 " and " %2) "cornbread" "butter beans")
+; => "cornbread and butter beans"
+
+; %& is a rest parameter, which returns here a list of all the arguments:
+(#(identity %&) 1 "blarg" :yip)
+; => (1 "blarg" :yip)
