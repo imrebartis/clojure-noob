@@ -353,3 +353,16 @@ failed-protagonist-names
 ; %& is a rest parameter, which returns here a list of all the arguments:
 (#(identity %&) 1 "blarg" :yip)
 ; => (1 "blarg" :yip)
+
+; RETURNING FUNCTIONS
+
+;functions can return other functions:
+(defn inc-maker
+  "Create a custom incrementor"
+  [inc-by]
+  #(+ % inc-by))
+
+(def inc3 (inc-maker 3))
+
+(inc3 7)
+; => 10
